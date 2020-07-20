@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
+    <title>Works of Sg Photography</title>
+    <style>
+        .column 
+        {
+            float: left;
+            width: 32%;
+            border: 1px solid darkgray;
+            margin: 5px;
+        }
+        /* Clear floats after the columns */
+        .row:after 
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .caption
+        {
+            width:auto;
+            text-align: center;
+        }
+        .image
+        {
+            padding: 17px;
+        }
+        .hbtn
+        {
+            background-color: #484e48;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: centre;            
+            /* background: none;
+            border: none;
+            padding-right: 50px;
+            font-style: bold; */
+        }
+        .hbtn:hover
+        {
+            /* font-size: large; */
+            background-color: rgba(192, 192, 192, 0.87);
+            box-shadow: 10px 10px 4px #292828;
+        }
+        .maincaption
+        {
+            width:auto;
+            text-align: right;            
+        }
+        body
+        {
+            background-color:linen;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: darkgray;padding: 5px;">
+        <h1 class="maincaption"><a href='/' style="color: black;text-decoration: none;border-radius: 40px;"> Sg Photography </a></h1>
+        <button class="hbtn" onclick="window.location.href='/'">Home</button>
+        <button class="hbtn" onclick="window.location.href='/next'">Order</button>
+        {% if user.is_authenticated %}
+        <button class="hbtn" onclick="window.location.href='/acc/logout'">Logout</button>
+        {% else %}
+        <button class="hbtn" onclick="window.location.href='/acc/signup'">Signup</button>
+        <button class="hbtn" onclick="window.location.href='/acc/login'">Login</button>
+        {% endif %}
+        <button class="hbtn" onclick="window.location.href='/gallery'">Gallery</button>
+    </header>
+    <div style="padding: 40px;">
+        <h1>Our range of Collections:</h1>
+        <div class="row">
+            {% for collect in collects %}
+            <div class="column">
+                <img src="{{ collect.img.url }}" width="370" height="250" class="image">
+                <h4 class="caption">{{collect.name}}</h4>
+                <p class="caption">{{collect.caption}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <h1>Our range of Works:</h1>
+        <div class="row">
+            {% for working in workings %}
+            <div class="column">
+                <img src="{{ working.img.url }}" width="370" height="250" class="image">
+                <h4 class="caption">{{ working.name }}</h4>
+                <p class="caption">{{working.caption}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <footer style="background-color:lawngreen; border-radius: 2px;padding: 2px;">
+        <p style="width: auto;text-align: center;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> | This website is designed and maintained by RogueRobot Team for queries please mail us at <a href="mailto:rrwebteam@gmail.com" style="color: black;">'rrwebteam'</a> or reach us at rrwebteam@gmail.com</p>
+    </footer>
+</body>
+</html>
+<script src="jquery.js" type="text/javascript"></script>
+<script>
+
+</script>

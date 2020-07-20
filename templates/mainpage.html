@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
+    <style>
+        /* .fade
+        {
+            visibility: hidden;
+        } */
+        #time
+        {
+            color: gold;
+            border-style: solid;
+            border-color:lavenderblush;
+            border-radius: 50px;
+            width: fit-content;
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        #btn 
+        {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: centre;
+        }
+        #btn:hover
+        {
+            background-color: #45a049;
+            /* box-shadow: 5px 10px 8px #888888; */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sg Photography</title>
+</head>
+<body style="background-image: url('images/land (4)edited.jpg'); background-size: contain; background-repeat: no-repeat;width:450px;height:900px;" onload="fn1()">
+
+    <header style="padding-top: 5px;padding-right: 5px;">
+        <button id='btn' style="position: absolute;top: 0;right: 0;">Skip-->></button>
+    </header>
+
+
+    <div>
+        <p id='b'>10</p>
+    </div>
+    <div style="text-align: center;padding-left: 350px;width: max-content; padding-top: 200px; font-family: cursive;">
+    <h2 id='q' class='fade' style="color:floralwhite;">“The picture that you took with your camera<br> is the imagination you want to create with reality.”
+       <p style="text-align: right;" class ='fade'> — Scott Lorenzo</p></h2></div><br><br>
+    
+       <div style="padding-left: 500px;width:max-content;">
+            <h3 style="color: floralwhite;">Redirecting you to next page in:</h3>
+       </div>
+    
+       <div id='timediv' style="padding-left: 600px;">
+
+        <h1 id='time' style="color: floralwhite;">5</h1>
+    </div>
+
+
+</body>
+</html>
+<script src="jquery.js" type="text/javascript"></script>
+<script>
+
+    function sleep(ms) 
+    {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function fn1()
+    {
+        $("#q").fadeOut(2)
+        $("#time").fadeOut(2)
+        $("#q").fadeIn(2000)
+        await sleep(2000);
+        console.log("mahith")
+        for(var i=4;i>=0;i--)
+        {
+            $("#time").fadeIn(500).fadeOut(500)
+            await sleep(1050)
+            $("#time").html(i)
+        }
+        //window.location.href='./home.html'
+        next()
+
+    }
+    function next()
+    {
+        window.location.href='homepage.html'
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+
+    function fn2()
+    {
+        $("#q").fadeOut(2000,forpass)
+        console.log("mahith")
+    }
+    function fn1()
+    {
+        setTimeout(function(){fn2()},500)
+    }
+    function passtime(i)
+    {
+        $("#time").fadeIn(500).fadeOut(500)
+    }
+    function forpass()
+    {
+        console.log("forpass lo")
+        var i=4
+        while(true)
+        {
+            console.log("while lo")
+            setTimeout(function(){passtime(i)},500)
+            $("#time").html(i)
+            i--
+            if(i==0)
+            {
+                break;
+            }
+        }
+    }
+
+</script> -->

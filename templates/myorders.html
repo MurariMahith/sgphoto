@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
+    <style>
+        td, th 
+        {
+            border: 1px solid #ddd;
+            padding: 8px;
+            width: 150px;
+        }
+        tr:nth-child(even)
+        {
+            background-color: #f2f2f2;
+        }
+        tr:hover 
+        {
+            background-color: #ddd;
+        }
+        th 
+        {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        body
+        {
+            background-image: url('{% static "images/land(2).jpg" %}');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width:450px;
+            height:900px;
+        }
+        .btnclass
+        {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: centre; 
+        }
+        .btnclass:hover
+        {
+            background-color: #45a049;
+            box-shadow: 10px 10px 4px #292828;
+            /* font-size: large; */
+        }        
+    </style>
+</head>
+<body>
+    <div style="padding-left: 100px;padding-top: 100px;position: absolute;left: 15%;">
+    {% if no_orders %}
+    <h1>No orders to display</h1>
+    {%  else %}
+    <table>
+        <tr>
+            <th>Order name</td>
+            <th>Order description</td>
+        </tr>
+        {% for ord in ords %}
+        {% if ord.username == request.user.username %}
+        <tr>
+            <td>{{ord.name}}</td>
+            <td>{{ord.order_description}}</td>
+        </tr>
+        <p style="width: auto;text-align: center;">You have {{num_orders_user}} orders to view</p>   
+        {% elif request.user.is_superuser %}
+        <tr>
+            <td>{{ord.name}}</td>
+            <td>{{ord.order_description}}</td>
+            <td>{{ord.username}}</td>
+            <td>{{ord.phone_number}}</td>
+        </tr>
+        <h3>you have {{num_orders_admin}} orders to view</h3>        
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% endif %}
+    </div>
+    <button id="btn1" class="btnclass" onclick="window.location.href='/'">Home</button><br><br>
+    <button id="btn2" class="btnclass" onclick="window.location.href='/acc/logout'">Logout</button><br><br>
+    <button id="btn2" class="btnclass" onclick="window.location.href='/works'">Our works</button><br><br>
+    <button id="btn2" class="btnclass" onclick="window.location.href='/gallery'">Gallery</button>
+</body>
+</html>

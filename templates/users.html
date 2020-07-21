@@ -6,55 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
     <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
-    <style>
-        td, th 
-        {
-            border: 1px solid #ddd;
-            padding: 8px;
-            width: 150px;
-        }
-        tr:nth-child(even)
-        {
-            background-color: #f2f2f2;
-        }
-        tr:hover 
-        {
-            background-color: #ddd;
-        }
-        th 
-        {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #4CAF50;
-            color: white;
-        }
-        body
-        {
-            background-image: url('{% static "images/land(2).jpg" %}');
-            background-size: contain;
-            background-repeat: no-repeat;
-            width:450px;
-            height:900px;
-        }
-        .btnclass
-        {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            margin-left: 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: centre; 
-        }
-        .btnclass:hover
-        {
-            background-color: #45a049;
-            box-shadow: 10px 10px 4px #292828;
-            /* font-size: large; */
-        }        
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/users.css' %}"> 
+
 </head>
 <body>
     <div style="padding-left: 100px;padding-top: 100px;position: absolute;left: 15%;">

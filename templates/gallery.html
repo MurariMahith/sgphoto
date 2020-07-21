@@ -5,58 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
-    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
-    <style>
-        .column 
-        {
-            float: left;
-            width: 17%;
-            /* border: 1px solid darkgray; */
-            margin: 5px;
-        }
-        /* Clear floats after the columns */
-        .row:after 
-        {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        .hbtn
-        {
-            background-color: #484e48;
-            color: white;
-            padding: 12px 20px;
-            margin-left: 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: centre;            
-            /* background: none;
-            border: none;
-            padding-right: 50px;
-            font-style: bold; */
-        }
-        .hbtn:hover
-        {
-            /* font-size: large; */
-            background-color: rgba(192, 192, 192, 0.87);
-            box-shadow: 10px 10px 4px #292828;
-        }
-        .maincaption
-        {
-            width:auto;
-            text-align: right;            
-        }
-        .image
-        {
-            border: 5px solid darkgray;
-            border-radius: 3px;
-        }        
-    </style>
+    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}"> 
+
 </head>
 <body>
-    <header style="background-color: darkgray;padding: 5px;">
-        <h1 class="maincaption"><a href='/' style="color: black;text-decoration: none;border-radius: 40px;"> Sg Photography </a></h1>
+    <header>
+        <h1 class="maincaption"><a href='/' id='h1sg'> Sg Photography </a></h1>
         {% if user.is_authenticated %}
         <button class="hbtn" onclick="window.location.href='/'">Home</button>
         <button class="hbtn" onclick="window.location.href='/next'">Order</button>
@@ -70,10 +25,10 @@
         <button class="hbtn" onclick="window.location.href='/works'">Our Works</button>
         {% endif %}
     </header>
-    <h1 style="width: auto;text-align: center; font-family:'Courier New', Courier, monospace;">"Our Gallery"</h1>    
+    <h1 id='gallery'>"Our Gallery"</h1>    
     <div id="row" >
         {% for i in images %}
-        <div class="column" style="padding-top: 20px; padding-left: 22px; padding-bottom: 15px;">
+        <div class="column" id='gal_img'>
             <img src="{{ i.img.url }}" width="200" height="400" class="image">
         </div>
         {% endfor %}

@@ -1,0 +1,44 @@
+#time
+        {
+            color: gold;
+            border-style: solid;
+            border-color:lavenderblush;
+            border-radius: 50px;
+            width: fit-content;
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        #btn 
+        {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: centre;
+        }
+        #btn:hover
+        {
+            background-color: #45a049;
+            /* box-shadow: 5px 10px 8px #888888; */
+            box-shadow: 10px 10px 4px #292828;
+        }
+        body{
+            background-image: url('../images/land(4)edited.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 450px ;
+            height: 900px;
+
+        }
+        #div_t
+        {
+            text-align: center;
+            padding-left: 350px;
+            width: max-content;
+            padding-top: 200px;
+            font-family: cursive;
+        }

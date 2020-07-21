@@ -16,6 +16,7 @@ def login(request):
             auth.login(request,user)
             return redirect('/')
         else:
+            messages.info(request,'Password wrong please try again')
             return redirect('/acc/login')
     else:
         return render(request,'login.html')
@@ -34,18 +35,14 @@ def signup(request):
         if password1==password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Username Taken... try with different username')
-                print("username taken")
                 return redirect('/acc/signup')
             elif User.objects.filter(email=email).exists():
                 messages.info(request,'email already used')
-                print("email already used... try with another email")
                 return redirect('/acc/signup')
             else:
                 if len(mobile_number)==10:
                     user=User.objects.create_user(username=username,password=password1,first_name=first_name,email=email,last_name=last_name)
                     user.save()
-                    messages.success(request,'sign up successfull')
-                    print("user created")
                     return redirect('/acc/login')
                 else:
                     messages.info(request,'please give valid mobile number')
@@ -54,7 +51,6 @@ def signup(request):
 
         else:
             messages.info(request,'Password not matching... retry registering')
-            print("password not matching")
             return redirect('/acc/signup')
         
         return redirect('/')
@@ -80,7 +76,6 @@ def adminbypass(request):
     admincode='alpha123'
     if request.method=='POST':
         given_admincode=request.POST['admincode']
-        print(request.POST['admincode'])
         if given_admincode==admincode:
             return redirect('/admin')
         else:

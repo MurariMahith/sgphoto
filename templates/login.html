@@ -3,108 +3,12 @@
 <head>
 <title>Login</title>
 <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
-<style>
-
-* {
-  box-sizing: border-box;
-}
-
-.maindiv
-{
-  width: 98%;
-  margin: 20px;
-  padding: 30px;
-  border: 5px solid #ccc;
-  border-radius: 4px;
-}
-
-input[type=text],input[type=email],input[type=password], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: centre;
-}
-
-input[type=submit]:hover 
-{
-  background-color: #45a049;
-  box-shadow: 10px 10px 4px #292828;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.hbtn
-        {
-            background-color: #484e48;
-            color: white;
-            padding: 12px 20px;
-            margin-left: 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: centre;            
-            /* background: none;
-            border: none;
-            padding-right: 50px;
-            font-style: bold; */
-        }
-        .hbtn:hover
-        {
-            /* font-size: large; */
-            background-color: rgba(192, 192, 192, 0.87);
-            box-shadow: 10px 10px 4px #292828;
-        }
-        .maincaption
-        {
-            width:auto;
-            text-align: right;            
-        }
-
-</style>
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 </head>
-
 <body>
 
   <div class='maindiv'>
-    <h1 class="maincaption"><a href='/' style="color: black;text-decoration: none;border-radius: 40px;"> Sg Photography </a></h1>
+    <h1 class="maincaption"><a href='/' id='h1sg'> Sg Photography </a></h1>
     <button class="hbtn" onclick="window.location.href='/'">Home</button>
     <button class="hbtn" onclick="window.location.href='/works'">Our Works</button>
     <button class="hbtn" onclick="window.location.href='/gallery'">Gallery</button>
@@ -122,7 +26,7 @@ input[type=submit]:hover
 <h3>Log In into SG Photography</h3>
 <form action="login" method="post">
 {% csrf_token %}
-<input type="text" name="username" placeholder="Username" required><br>
+<input type="text" name="username" placeholder="Username" required><br><br>
 
 <input type="password" name="password" placeholder="Password" required><br><br>
 
@@ -134,4 +38,8 @@ Go to <a href="/">home</a>
 </div>
 {% endif %}
 </body>
+{% for i in messages %}
+<input type="hidden" value='{{i}}' id='x'>
+<script>alert(document.getElementById('x').value)</script>
+{% endfor %}
 </html>

@@ -4,53 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg"> 
+    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/next.css' %}"> 
     <title>Sg Photography</title>
-    <style>
-        .hbtn
-        {
-            background-color: #484e48;
-            color: white;
-            padding: 12px 20px;
-            margin-left: 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: centre;
-            /* background: none;
-            border: none;
-            padding-right: 50px;
-            font-style: bold; */
-        }
-        .hbtn:hover
-        {
-            font-size: large;
-            background-color: rgba(192, 192, 192, 0.87);
-            box-shadow: 10px 10px 4px #292828;
-        }
-        .maincaption
-        {
-            width:auto;
-            text-align: right;            
-        }
-        body
-        {
-            background-image: url('{% static "images/land(2).jpg" %}');
-            background-size: contain;
-            background-repeat: no-repeat;
-            width:450px;
-            height:900px;
-        }
-    </style>
 </head>
 <body>
 
-    <div style="padding-left: 370px;width: max-content; padding-top: 200px;">
+    <div id='maindiv'>
     <h3> please <a href="https://instagram.com/sg_clicknblink?igshid=18q0voqnyd6ig">click here</a> 
         to visit us on instagram and text us, we will contact you soon</h3>
         <h3 style="width: auto;text-align: center;">or create account by clicking <a href="/acc/signup">here</a></h3>
     </div>
-    <div style="background-color:lavender;padding: 5px; margin-top: 430px; width: 1330px;right: 0;">
+    <div id='footdiv'>
         <h1 class="maincaption">Sg Photography</h1>
     <button class="hbtn" onclick="window.location.href='/'">Home</button>
         <button class="hbtn" onclick="window.location.href='next'">Order</button>

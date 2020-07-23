@@ -34,7 +34,6 @@ def signup(request):
 
         if password1==password2:
             if User.objects.filter(username=username).exists():
-                messages.info(request,'Username Taken... try with different username')
                 return redirect('/acc/signup')
             elif User.objects.filter(email=email).exists():
                 messages.info(request,'email already used')
@@ -90,4 +89,27 @@ def users(request):
         return render(request,'users.html',{'users':users,'num_users':num_users})
     else:
         return redirect('/acc/login')
-        
+
+def forgotpassword(request):
+    # users=User.objects.all()
+    if request.method == 'POST':
+         first_name = request.POST['first_name']
+         last_name = request.POST['last_name']
+         username = request.POST['username']
+         password1 = request.POST['password1']
+         password2 = request.POST['password2']
+         test=User.objects.get(username=username)
+         if password1==password2:
+            if test.first_name==first_name and test.last_name==last_name:
+                test.set_password(password1)
+                test.save()
+                return redirect('/acc/login')
+            else:
+                messages.info(request,'user not authenticated give valid credentials to restore your account')
+                return redirect('/acc/forgotpassword')
+         else:
+             messages.info(request,'Two password fields not matching...please try again')
+             return redirect('/acc/forgotpassword')
+         return redirect('/acc/login')
+    else:
+         return render(request,'forgotpassword.html')

@@ -12,6 +12,7 @@
     <button class="hbtn" onclick="window.location.href='/'">Home</button>
     <button class="hbtn" onclick="window.location.href='/works'">Our Works</button>
     <button class="hbtn" onclick="window.location.href='/gallery'">Gallery</button>
+    <button class="hbtn" onclick="window.location.href='/search'">Search</button>
     {% if user.is_authenticated %}
     <script>alert('You are already logged')</script>
     <button class="hbtn" onclick="window.location.href='/acc/logout'">Logout</button>
@@ -22,7 +23,7 @@
 <h3>Sign Up into SG Photography</h3>
 <form action="signup" method="post">
   {% csrf_token %}
-<input type="text" name="first_name" placeholder="First Name" required><br>
+<input type="text" name="first_name" placeholder="First Name" required><br> 
 <input type="text" name="last_name" placeholder="Last Name" required><br>
 <input type="text" name="username" placeholder="Username" required><br>
 <input type="text" name="mobile_number" placeholder="Mobile number" required><br>
@@ -31,8 +32,9 @@
 <input type="password" name="password2" placeholder="Retype Password" required><br><br>
 
 <input type="submit"><br><br>
-Already have account? <a href="/acc/login">click here</a>
-Go to <a href="/">home</a>
+<p>Note: please remember your first name and last name inorder to retrive password if forgotten</p>
+<a href="/acc/login">Already have account? </a>
+
 </form>
 {% for i in messages %}
 <input type="hidden" value='{{i}}' id='x'>

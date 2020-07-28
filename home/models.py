@@ -19,3 +19,28 @@ class Buying (models.Model):
 
 class Image (models.Model):
     img=models.ImageField(upload_to='images')
+
+
+class Feed(models.Model): 
+    caption = models.CharField(max_length=50) 
+    post_img = models.ImageField(upload_to='posts') 
+    username = models.CharField(max_length=50) 
+
+
+
+
+
+
+
+
+
+
+
+
+# class Post (models.Model):
+#     img=models.ImageField(upload_to='posts')
+#     caption=models.TextField()
+
+# # class Postnewsfeed (models.Model):
+# #     img=models.ImageField(upload_to='posts')
+# #     caption=models.TextField()

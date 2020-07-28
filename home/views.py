@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Collections,Workings,Buying,Image
-
+from .forms import *
+from .models import Collections,Workings,Buying,Image,Feed
 # Create your views here.
 def home(request):
     imgs=Image.objects.all()
@@ -72,3 +72,27 @@ def gallery(request):
 
 def search(request):
     return render(request, 'searchphoto.html')
+    
+
+
+import random
+def news_feed(request):
+    user_posts=Feed.objects.all()
+    no_post=len(user_posts)==0
+    return render(request,'news_feed.html',{'user_posts':user_posts,'no_post':no_post})
+
+
+def post_feed(request): 
+  
+    if request.method == 'POST': 
+        form = FeedForm(request.POST, request.FILES) 
+  
+        if form.is_valid():
+            form.save() 
+            return redirect('/news_feed') 
+    else: 
+        form = FeedForm() 
+        if request.user.is_authenticated:
+            return render(request, 'addpost.html', {'form' : form}) 
+        else:
+            return redirect('/acc/login')

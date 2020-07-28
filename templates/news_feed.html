@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+<head>
+<title>News Feed</title>
+<link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg">
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}"> 
+<style>
+            .column 
+        {
+            float: left;
+            width: 32%;
+            border: 1px solid darkgray;
+            margin: 5px;
+        }
+        /* Clear floats after the columns */
+        .row:after 
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .caption
+        {
+            width:auto;
+            text-align: center;
+        }
+        .image
+        {
+            padding: 2%;
+            max-width: 95%;
+            max-height: 110%;
+        }
+        #maindiv
+        {
+            background-image: url("{% static '/images/land(1).jpg' %}");
+        }
+</style>
+</head>
+
+<body>
+  <div class='maindiv'>
+    <h1 class="maincaption"><a href='/' id='h1sg'> Sg Photography </a></h1>
+    <button class="hbtn" onclick="window.location.href='/'">Home</button>
+    <button class="hbtn" onclick="window.location.href='/works'">Our Works</button>
+    <button class="hbtn" onclick="window.location.href='/gallery'">Gallery</button>
+    <button class="hbtn" onclick="window.location.href='/search'">Search</button>
+    <button class="hbtn" onclick="window.location.href='/post_feed'">New Post</button>
+  </div>
+
+<div class='maindiv' style="background-image: url('../images/land(1).jpg');">
+<h3 class="caption">News Feed from various Photographers</h3><br>
+
+
+<div class="row">
+    {% if no_post %}
+    <h2>No posts to views, add new post here</h2>
+    <button class="hbtn" onclick="window.location.href='/post_feed'">New Post</button>
+    {% else %}
+    {% for i in user_posts %}
+    <div class="column">
+        <img src="{{ i.post_img.url }}" class="image">
+        <h4 class="caption">"{{ i.caption }}"</h4>
+        <p class="caption">posted by:  "{{i.username}}"</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+</div> 
+</body>
+</html>

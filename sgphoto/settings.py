@@ -128,7 +128,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
-
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 #this section is for media of works page to make use of pics 

@@ -26,8 +26,9 @@
                 <button id="btn2" class="btnclass" onclick="window.location.href='/acc/logout'">Logout</button>                          
                 <button id="btn3" class="btnclass" onclick="window.location.href='works'">Our Works</button><br><br>
                 <button id="btn5" class="btnclass" onclick="window.location.href='gallery'">Gallery</button>
+                <button class="btnclass" onclick="window.location.href='/news_feed'">News Feed</button>
                 {% if user.is_superuser %}
-                <button id="btn3" class="btnclass" onclick="window.location.href='myorders'">View Orders</button>
+                <button id="btn3" class="btnclass" onclick="window.location.href='myorders'">View Orders</button><br><br>
                 <button id="btn3" class="btnclass" onclick="window.location.href='/acc/users'">View Users</button>
                 {% else %}
                 <button id="btn3" class="btnclass" onclick="window.location.href='myorders'">My Orders</button>
@@ -41,7 +42,8 @@
                 <button id="btn3" class="btnclass" onclick="window.location.href='/acc/signup'">SignUp</button><br><br>
                 <button id="btn4" class="btnclass" onclick="window.location.href='works'">Our Works</button>
                 <button id="btn5" class="btnclass" onclick="window.location.href='gallery'">Gallery</button>
-                <button id="btn6" class="btnclass" onclick="window.location.href='/search'">Search</button>
+                <button id="btn6" class="btnclass" onclick="window.location.href='/search'">Search</button><br><br>
+                <button class="btnclass" onclick="window.location.href='/news_feed'">News Feed</button>
               </div>
               <br>
               {% endif %}

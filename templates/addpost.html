@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Sign Up</title>
+    <link rel = "icon" href =  "{% static 'icons/sg.jpg' %}" type = "image/jpg">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}"> 
+</head> 
+<body>
+    <div class='maindiv'>
+        <h1 class="maincaption"><a href='/' id='h1sg'> Sg Photography </a></h1>
+        <button class="hbtn" onclick="window.location.href='/'">Home</button>
+        <button class="hbtn" onclick="window.location.href='/works'">Our Works</button>
+        <button class="hbtn" onclick="window.location.href='/gallery'">Gallery</button>
+        <button class="hbtn" onclick="window.location.href='/search'">Search</button>
+        <button class="hbtn" onclick="window.location.href='/news_feed'">News Feed</button>
+        <button class="hbtn" onclick="window.location.href='/acc/logout'">Logout</button>
+      </div>
+      
+      <div class='maindiv'>
+        <h3>Post in SG Photography</h3>
+        <form method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        <button type="submit" class="hbtn" style="background-color: blueviolet;">Post</button>
+        </form>
+        </div> 
+    </form> 
+</body> 
+</html> 

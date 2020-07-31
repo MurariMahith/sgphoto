@@ -23,12 +23,17 @@
         {
             width:auto;
             text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
         }
         .image
         {
-            padding: 2%;
-            max-width: 95%;
-            max-height: 110%;
+            /* padding: 4%; */
+            padding: 4%;
+            /* max-width: 95%;
+            max-height: 110%; */
+            width: 97%;
+            height: 70%;
+            object-fit: cover;
         }
         #maindiv
         {
@@ -48,19 +53,20 @@
   </div>
 
 <div class='maindiv' style="background-image: url('../images/land(1).jpg');">
-<h3 class="caption">News Feed from various Photographers</h3><br>
-
+<h3 class="caption">"News Feed from various Photographers"</h3><br>
+<h4 style="font-family: Arial, Helvetica, sans-serif;"> - Post whats in your mind and see what other photographers are posting around the world</h4>
 
 <div class="row">
     {% if no_post %}
-    <h2>No posts to views, add new post here</h2>
+    <h1>No posts to views, add new post here</h1>
+    
     <button class="hbtn" onclick="window.location.href='/post_feed'">New Post</button>
     {% else %}
     {% for i in user_posts %}
     <div class="column">
         <img src="{{ i.post_img.url }}" class="image">
         <h4 class="caption">"{{ i.caption }}"</h4>
-        <p class="caption">posted by:  "{{i.username}}"</p>
+        <p class="caption">posted by:  "<b><i>{{i.username}}</i></b>"</p>
     </div>
     {% endfor %}
     {% endif %}
